@@ -1,4 +1,7 @@
-import { COMPANIES, NEXT_EARNINGS } from '../data/companies.js';
+import { COMPANIES } from '../data/companies.js';
+import { getNextEarnings, getEffectiveStatus, LIVE_UPDATED_AT } from '../data/liveEarnings.js';
+
+const nextDate = (id) => getNextEarnings(id)?.date ?? null;
 
 function daysUntil(dateStr) {
   if (!dateStr) return null;
@@ -20,9 +23,9 @@ export default function AdminConsole({ onNavigate }) {
 
   const stats = {
     total: COMPANIES.length,
-    beat: COMPANIES.filter((c) => c.earnings?.status === 'Beat').length,
-    meet: COMPANIES.filter((c) => c.earnings?.status === 'Meet').length,
-    miss: COMPANIES.filter((c) => c.earnings?.status === 'Miss').length,
+    beat: COMPANIES.filter((c) => getEffectiveStatus(c) === 'Beat').length,
+    meet: COMPANIES.filter((c) => getEffectiveStatus(c) === 'Meet').length,
+    miss: COMPANIES.filter((c) => getEffectiveStatus(c) === 'Miss').length,
     withTactical: COMPANIES.filter((c) => c.tacticalEntry).length,
     withEarnings: COMPANIES.filter((c) => c.earnings).length,
   };
@@ -34,7 +37,7 @@ export default function AdminConsole({ onNavigate }) {
 
       {/* Header */}
       <header className="mb-10">
-        <div className="label mb-3">Admin Console · {now}</div>
+        <div className="label mb-3">Admin Console · {now}{LIVE_UPDATED_AT && ` · Live numbers ${LIVE_UPDATED_AT}`}</div>
         <h1 className="font-display text-5xl leading-[1.05] tracking-tight md:text-6xl">
           Dashboard
         </h1>
@@ -86,9 +89,11 @@ export default function AdminConsole({ onNavigate }) {
                 </thead>
                 <tbody>
                   {cos.map((c) => {
-                    const days = daysUntil(NEXT_EARNINGS[c.id]);
-                    const dateStr = NEXT_EARNINGS[c.id]
-                      ? new Date(`${NEXT_EARNINGS[c.id]}T00:00:00`).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+                    const next = nextDate(c.id);
+                    const days = daysUntil(next);
+                    const status = getEffectiveStatus(c);
+                    const dateStr = next
+                      ? new Date(`${next}T00:00:00`).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
                       : '—';
                     const daysLabel =
                       days === null ? '' :
@@ -109,8 +114,8 @@ export default function AdminConsole({ onNavigate }) {
                           </button>
                         </td>
                         <td className="py-2.5 pr-6 text-paper-text dark:text-ink-text">{c.name}</td>
-                        <td className={`py-2.5 pr-6 ${STATUS_COLOR[c.earnings?.status] || 'text-paper-muted dark:text-ink-muted'}`}>
-                          {c.earnings?.status || '—'}
+                        <td className={`py-2.5 pr-6 ${STATUS_COLOR[status] || 'text-paper-muted dark:text-ink-muted'}`}>
+                          {status || '—'}
                         </td>
                         <td className={`py-2.5 pr-6 ${days !== null && days <= 7 && days >= 0 ? 'text-amber-500 dark:text-amber-400' : 'text-paper-text dark:text-ink-text'}`}>
                           {dateStr}{daysLabel}
@@ -139,7 +144,7 @@ export default function AdminConsole({ onNavigate }) {
         </div>
         <ul className="space-y-2">
           {COMPANIES
-            .map((c) => ({ c, days: daysUntil(NEXT_EARNINGS[c.id]), dateStr: NEXT_EARNINGS[c.id] }))
+            .map((c) => ({ c, days: daysUntil(nextDate(c.id)), dateStr: nextDate(c.id) }))
             .filter(({ days }) => days !== null && days >= 0 && days <= 30)
             .sort((a, b) => a.days - b.days)
             .map(({ c, days, dateStr }) => (
@@ -155,12 +160,12 @@ export default function AdminConsole({ onNavigate }) {
                 </button>
                 <span className="text-paper-text dark:text-ink-text">{c.name}</span>
                 <span className="text-paper-muted dark:text-ink-muted ml-auto">
-                  {new Date(dateStr).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                  {new Date(`${dateStr}T00:00:00`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                 </span>
               </li>
             ))}
           {COMPANIES.filter((c) => {
-            const d = daysUntil(NEXT_EARNINGS[c.id]);
+            const d = daysUntil(nextDate(c.id));
             return d !== null && d >= 0 && d <= 30;
           }).length === 0 && (
             <li className="font-mono text-[12px] text-paper-muted dark:text-ink-muted">No earnings in the next 30 days.</li>

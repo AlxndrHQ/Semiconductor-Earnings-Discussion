@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { getCompany, NEXT_EARNINGS, EARNINGS_DATE_CONFIRMED } from '../data/companies.js';
+import { getCompany } from '../data/companies.js';
+import { getNextEarnings, getNewerResults, formatMoney, LIVE_UPDATED_AT } from '../data/liveEarnings.js';
 import { getFounderProfile } from '../data/founderProfiles.js';
 import { getCreditProfile } from '../data/creditProfiles.js';
 import LiveTicker from './LiveTicker.jsx';
@@ -22,8 +23,9 @@ function daysUntil(dateStr) {
 }
 
 function EarningsDate({ id }) {
-  const dateStr = NEXT_EARNINGS[id];
-  if (!dateStr) return <span className="text-paper-muted dark:text-ink-muted">—</span>;
+  const next = getNextEarnings(id);
+  if (!next) return <span className="text-paper-muted dark:text-ink-muted">—</span>;
+  const dateStr = next.date;
 
   const days = daysUntil(dateStr);
   const formatted = parseLocalDate(dateStr).toLocaleDateString('en-US', {
@@ -44,7 +46,7 @@ function EarningsDate({ id }) {
   return (
     <span className={`font-mono text-sm ${urgency}`}>
       {formatted}{badge}
-      {!EARNINGS_DATE_CONFIRMED.has(id) && (
+      {!next.confirmed && (
         <span className="ml-2 font-mono text-[9px] uppercase tracking-widest text-paper-muted dark:text-ink-muted">est.</span>
       )}
     </span>
@@ -126,7 +128,7 @@ export default function CompanyCard({ company, onNavigate }) {
       <div className="mb-12"><CreditGauge /></div>
 
       {/* Earnings */}
-      {earnings && <EarningsSection earnings={earnings} />}
+      {earnings && <EarningsSection earnings={earnings} newer={getNewerResults(company)} />}
 
       {/* Thematic Story */}
       <Section title="Thematic Story">
@@ -251,7 +253,50 @@ const STATUS_STYLES = {
   },
 };
 
-function EarningsSection({ earnings }) {
+function NewerResults({ r }) {
+  const label = r.status ?? 'Reported';
+  const s = STATUS_STYLES[label] ?? STATUS_STYLES.Reported;
+  const date = parseLocalDate(r.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  const updated = LIVE_UPDATED_AT && parseLocalDate(LIVE_UPDATED_AT).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  const vs = (a, e, opts) => (
+    <>
+      <span className="text-paper-text dark:text-ink-text">{formatMoney(a, r.currency, opts)}</span>
+      {e != null && <span className="text-paper-muted dark:text-ink-muted"> vs {formatMoney(e, r.currency, opts)} est.</span>}
+    </>
+  );
+
+  return (
+    <div className="mb-4 rounded border border-paper-accent/40 dark:border-ink-accent/40 bg-paper-bg dark:bg-ink-bg font-mono text-xs">
+      <div className="flex flex-wrap items-center gap-3 border-b border-paper-muted/20 dark:border-ink-muted/20 px-4 py-2">
+        <span className={`inline-flex items-center gap-1.5 rounded border px-2 py-0.5 text-[10px] uppercase tracking-widest ${s.badge}`}>
+          <span className={`h-1.5 w-1.5 rounded-full ${s.dot}`} />
+          {label}
+        </span>
+        <span className="text-[10px] uppercase tracking-widest text-paper-accent dark:text-ink-accent">
+          New results · Reported {date}
+        </span>
+        <span className="ml-auto text-[9px] uppercase tracking-widest text-paper-muted dark:text-ink-muted">
+          Auto{updated && ` · ${updated}`}
+        </span>
+      </div>
+      <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 px-4 py-3">
+        <dt className="text-[9px] uppercase tracking-widest text-paper-muted dark:text-ink-muted pt-px">EPS</dt>
+        <dd>{vs(r.epsActual, r.epsEstimate)}</dd>
+        {r.revenueActual != null && (
+          <>
+            <dt className="text-[9px] uppercase tracking-widest text-paper-muted dark:text-ink-muted pt-px">Revenue</dt>
+            <dd>{vs(r.revenueActual, r.revenueEstimate, { compact: true })}</dd>
+          </>
+        )}
+      </dl>
+      <p className="border-t border-paper-muted/20 dark:border-ink-muted/20 px-4 py-2 text-[11px] text-paper-muted dark:text-ink-muted">
+        Numbers and the EPS-based call come from the Finnhub earnings calendar. The full write-up below still covers the prior quarter until it is refreshed.
+      </p>
+    </div>
+  );
+}
+
+function EarningsSection({ earnings, newer }) {
   const { period, reportedOn, status, statusBasis, guidance, breakdown = [], sources = [] } = earnings;
   const label = status ?? 'Reported';
   const s = STATUS_STYLES[label] ?? STATUS_STYLES.Reported;
@@ -260,7 +305,9 @@ function EarningsSection({ earnings }) {
   });
 
   return (
-    <Section title={`Earnings · ${period}`}>
+    <Section title={newer ? 'Earnings' : `Earnings · ${period}`}>
+      {newer && <NewerResults r={newer} />}
+
       {/* Terminal panel */}
       <div className="rounded border border-paper-muted/20 dark:border-ink-muted/20 bg-paper-bg dark:bg-ink-bg font-mono text-xs">
 
