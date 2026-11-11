@@ -2,7 +2,7 @@ import { COMPANIES, NEXT_EARNINGS } from '../data/companies.js';
 
 function daysUntil(dateStr) {
   if (!dateStr) return null;
-  const target = new Date(dateStr);
+  const target = new Date(`${dateStr}T00:00:00`);
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   target.setHours(0, 0, 0, 0);
@@ -88,7 +88,7 @@ export default function AdminConsole({ onNavigate }) {
                   {cos.map((c) => {
                     const days = daysUntil(NEXT_EARNINGS[c.id]);
                     const dateStr = NEXT_EARNINGS[c.id]
-                      ? new Date(NEXT_EARNINGS[c.id]).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+                      ? new Date(`${NEXT_EARNINGS[c.id]}T00:00:00`).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
                       : '—';
                     const daysLabel =
                       days === null ? '' :

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { getCompany, NEXT_EARNINGS } from '../data/companies.js';
+import { getCompany, NEXT_EARNINGS, EARNINGS_DATE_CONFIRMED } from '../data/companies.js';
 import { getFounderProfile } from '../data/founderProfiles.js';
 import { getCreditProfile } from '../data/creditProfiles.js';
 import LiveTicker from './LiveTicker.jsx';
@@ -44,6 +44,9 @@ function EarningsDate({ id }) {
   return (
     <span className={`font-mono text-sm ${urgency}`}>
       {formatted}{badge}
+      {!EARNINGS_DATE_CONFIRMED.has(id) && (
+        <span className="ml-2 font-mono text-[9px] uppercase tracking-widest text-paper-muted dark:text-ink-muted">est.</span>
+      )}
     </span>
   );
 }
@@ -239,14 +242,25 @@ const STATUS_STYLES = {
     text: 'text-red-400',
     bullet: 'text-red-500 dark:text-red-400',
   },
+  // No sourced consensus to measure the quarter against.
+  Reported: {
+    badge: 'text-paper-muted dark:text-ink-muted border-paper-muted/40 dark:border-ink-muted/40',
+    dot: 'bg-paper-muted dark:bg-ink-muted',
+    text: 'text-paper-text dark:text-ink-text',
+    bullet: 'text-paper-muted dark:text-ink-muted',
+  },
 };
 
 function EarningsSection({ earnings }) {
-  const { status, guidance, breakdown = [] } = earnings;
-  const s = STATUS_STYLES[status] ?? STATUS_STYLES.Meet;
+  const { period, reportedOn, status, statusBasis, guidance, breakdown = [], sources = [] } = earnings;
+  const label = status ?? 'Reported';
+  const s = STATUS_STYLES[label] ?? STATUS_STYLES.Reported;
+  const reportedDate = reportedOn && parseLocalDate(reportedOn).toLocaleDateString('en-US', {
+    month: 'short', day: 'numeric', year: 'numeric',
+  });
 
   return (
-    <Section title="Earnings · Q1 2026">
+    <Section title={`Earnings · ${period}`}>
       {/* Terminal panel */}
       <div className="rounded border border-paper-muted/20 dark:border-ink-muted/20 bg-paper-bg dark:bg-ink-bg font-mono text-xs">
 
@@ -254,12 +268,20 @@ function EarningsSection({ earnings }) {
         <div className="flex items-center gap-3 border-b border-paper-muted/20 dark:border-ink-muted/20 px-4 py-2">
           <span className={`inline-flex items-center gap-1.5 rounded border px-2 py-0.5 text-[10px] uppercase tracking-widest ${s.badge}`}>
             <span className={`h-1.5 w-1.5 rounded-full ${s.dot}`} />
-            {status}
+            {label}
           </span>
           <span className="text-paper-muted dark:text-ink-muted text-[10px] uppercase tracking-widest">
-            Q1&nbsp;2026&nbsp;Results
+            {period}&nbsp;Results{reportedDate && ` · Reported ${reportedDate}`}
           </span>
         </div>
+
+        {/* Status basis */}
+        {statusBasis && (
+          <div className="border-b border-paper-muted/20 dark:border-ink-muted/20 px-4 py-3 text-paper-muted dark:text-ink-muted">
+            <span className="text-[9px] uppercase tracking-widest">Vs&nbsp;Consensus&nbsp;›&nbsp;</span>
+            <span>{statusBasis}</span>
+          </div>
+        )}
 
         {/* Guidance */}
         <div className="border-b border-paper-muted/20 dark:border-ink-muted/20 px-4 py-3">
@@ -280,6 +302,18 @@ function EarningsSection({ earnings }) {
         </ul>
 
       </div>
+
+      {sources.length > 0 && (
+        <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1">
+          {sources.map((src) => (
+            <li key={src.url}>
+              <a href={src.url} target="_blank" rel="noreferrer" className="wikilink font-mono text-[11px]">
+                ↗ {src.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
     </Section>
   );
 }
