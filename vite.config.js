@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/SemiConductor-Earnings-Breakdown/', // MUST MATCH REPO NAME
+  base: '/Semiconductor-Earnings-Discussion/', // MUST MATCH REPO NAME
 })

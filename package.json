@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "homepage": "https://AlxndrHQ.github.io/SemiConductor-Earnings-Breakdown",
+  "homepage": "https://AlxndrHQ.github.io/Semiconductor-Earnings-Discussion",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
