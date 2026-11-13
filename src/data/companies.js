@@ -926,23 +926,22 @@ export const COMPANIES = [
       { to: 'intc', label: 'IFS 18A process equipment' },
     ],
     earnings: {
-      period: 'FQ3 2026',
-      periodEnd: '2026-07-26',
-      reportedOn: '2026-08-13',
+      period: 'FQ4 2026',
+      periodEnd: '2026-10-25',
+      reportedOn: '2026-11-12',
       status: 'Beat',
-      statusBasis: 'Revenue $9.12B vs $8.99B and non-GAAP EPS $3.50 vs $3.40 (Investing.com; Reuters also cites $8.99B revenue but names no provider for Q3 estimates).',
-      guidance: 'FQ4 2026 revenue of $10.25B +/- $500M and non-GAAP EPS of $4.02 +/- $0.20.',
+      statusBasis: 'Revenue $10.41B vs $10.30B and non-GAAP EPS $4.16 vs $4.06, consensus via Investing.com (provider not named; LSEG figures not found).',
+      guidance: 'FQ1 2027 revenue of $11.10B +/- $500M and non-GAAP EPS of $4.35 +/- $0.20, both above the $10.84B and $4.25 analyst estimates cited by Investing.com.',
       breakdown: [
-        'Semiconductor Systems $7.04B (67% foundry/logic, 26% DRAM, 7% flash); 38.0% non-GAAP op margin',
-        'Applied Global Services $1.78B; Other (incl. Display) $294M',
-        'Non-GAAP gross margin 50.4%, non-GAAP operating margin 34.0%, record revenue up 25% YoY',
-        'AI demand lifted calendar 2026 Semi Systems view; packaging seen up 70%+ in calendar 2026',
+        'Semiconductor Systems $8.00B (58% foundry/logic, 33% DRAM, 9% flash); 39.0% non-GAAP op margin',
+        'Applied Global Services $1.90B; Other (incl. Display) $517M; China 25% of revenue',
+        'Non-GAAP gross margin 50.6%, record non-GAAP operating margin 35.3%; revenue up 53% YoY',
+        'Semi Systems seen up 40%+ in calendar 2026, packaging ~90%; WFE seen up 30%+ in 2027',
       ],
       sources: [
-        { label: 'AMAT FQ3 release (8-K)', url: 'https://www.sec.gov/Archives/edgar/data/0000006951/000162828026056699/exhibit991q32026earningsre.htm', date: '2026-08-13' },
-        { label: 'Reuters via Yahoo', url: 'https://finance.yahoo.com/technology/ai/articles/applied-materials-forecasts-quarterly-revenue-200500160.html', date: '2026-08-13' },
-        { label: 'Investing.com transcript recap', url: 'https://www.investing.com/news/transcripts/earnings-call-transcript-applied-materials-beats-q3-2026-estimates-shares-fall-93CH-4859444', date: '2026-08-13' },
-        { label: 'AMAT notice of FQ4 date', url: 'https://www.appliedmaterials.com/us/en/newsroom/press-releases/102226-applied-to-report-fourth-quarter-fiscal-2026-results.html', date: '2026-10-22' },
+        { label: 'AMAT FQ4 release (8-K)', url: 'https://www.sec.gov/Archives/edgar/data/0000006951/000162828026073360/exhibit991q42026earningsre.htm', date: '2026-11-12' },
+        { label: 'Investing.com results vs estimates', url: 'https://www.investing.com/news/earnings/applied-materials-shares-trade-lower-depite-q4-beat-5023202', date: '2026-11-12' },
+        { label: 'Investing.com call transcript recap', url: 'https://www.investing.com/news/transcripts/earnings-call-transcript-applied-materials-tops-q4-2026-forecasts-as-ai-demand-lifts-outlook-93CH-5023634', date: '2026-11-12' },
       ],
     },
     ir: {
@@ -2199,7 +2198,7 @@ export const NEXT_EARNINGS = {
   nanya: '2027-01-18',
   // Equipment & Lithography
   asml:  '2027-01-27',
-  amat:  '2026-11-12',
+  amat:  '2027-02-12',
   lrcx:  '2027-01-27',
   klac:  '2027-01-28',
   toely: '2027-02-05',
@@ -2228,4 +2227,4 @@ export const NEXT_EARNINGS = {
   viav:  '2027-02-03',
 };
 
-export const EARNINGS_DATE_CONFIRMED = new Set(['nvda', 'avgo', 'adi', 'amat', 'toely', 'snow']);
+export const EARNINGS_DATE_CONFIRMED = new Set(['nvda', 'avgo', 'adi', 'mrvl', 'toely', 'snow']);
