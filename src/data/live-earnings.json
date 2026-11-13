@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-11",
+  "updatedAt": "2026-11-13",
   "source": "Finnhub earnings calendar",
   "companies": {
     "nvda": {
@@ -225,9 +225,19 @@
     "amat": {
       "symbol": "AMAT",
       "currency": "USD",
-      "next": {
+      "latest": {
         "date": "2026-11-12",
-        "hour": "amc"
+        "fiscalQuarter": 4,
+        "fiscalYear": 2026,
+        "epsActual": 4.16,
+        "epsEstimate": 4.1345,
+        "revenueActual": 10409000000,
+        "revenueEstimate": 10504570449,
+        "status": "Meet"
+      },
+      "next": {
+        "date": "2027-02-10",
+        "hour": null
       }
     },
     "lrcx": {
@@ -422,7 +432,7 @@
       "symbol": "SNOW",
       "currency": "USD",
       "next": {
-        "date": "2026-12-02",
+        "date": "2026-12-03",
         "hour": "amc"
       }
     },
