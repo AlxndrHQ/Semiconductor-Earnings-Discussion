@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-13",
+  "updatedAt": "2026-11-14",
   "source": "Finnhub earnings calendar",
   "companies": {
     "nvda": {
@@ -207,16 +207,6 @@
     "asml": {
       "symbol": "ASML.AS",
       "currency": "EUR",
-      "latest": {
-        "date": "2026-10-14",
-        "fiscalQuarter": 3,
-        "fiscalYear": 2026,
-        "epsActual": 12.93,
-        "epsEstimate": 11.0415,
-        "revenueActual": 11662000000,
-        "revenueEstimate": 11954637343,
-        "status": "Beat"
-      },
       "next": {
         "date": "2027-01-27",
         "hour": "amc"
@@ -432,7 +422,7 @@
       "symbol": "SNOW",
       "currency": "USD",
       "next": {
-        "date": "2026-12-03",
+        "date": "2026-12-02",
         "hour": "amc"
       }
     },
