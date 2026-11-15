@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-14",
+  "updatedAt": "2026-11-15",
   "source": "Finnhub earnings calendar",
   "companies": {
     "nvda": {
@@ -13,16 +13,6 @@
     "tsm": {
       "symbol": "2330.TW",
       "currency": "TWD",
-      "latest": {
-        "date": "2026-10-15",
-        "fiscalQuarter": 3,
-        "fiscalYear": 2026,
-        "epsActual": 29.43,
-        "epsEstimate": 29.241,
-        "revenueActual": 1494240000000,
-        "revenueEstimate": 1485955433631,
-        "status": "Meet"
-      },
       "next": {
         "date": "2027-01-13",
         "hour": "bmo"
