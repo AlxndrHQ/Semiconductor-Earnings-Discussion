@@ -451,9 +451,8 @@ export const COMPANIES = [
       statusBasis: 'Revenue $2.74B vs $2.71B and adjusted EPS $0.94 vs $0.92, expectations attributed to Reuters by Quartz via Yahoo Finance.',
       guidance: 'FQ3 2027 revenue of $3.15B, with the range narrowed to +/-2% on 2026-11-02 and non-GAAP EPS guided at $1.10 +/-$0.05; the outlook is about $12B for fiscal 2027 and about $18B for fiscal 2028.',
       breakdown: [
-        'Revenue $2.739B, up 37% YoY, a record',
+        'Record revenue $2.739B, up 37% YoY; communications and other $568M, up 10% YoY, down 3% QoQ',
         'Data center $2.17B, 79% of revenue, up 46% YoY and 18% QoQ',
-        'Communications and other $568M, up 10% YoY and down 3% QoQ',
         'Non-GAAP gross margin 58.9%, operating margin 36.6%, EPS $0.94',
         'Agreed Nov 2 to buy Lumentum in an all-stock deal, ~$115B EV; close expected H1 2028',
       ],
@@ -2036,8 +2035,7 @@ export const COMPANIES = [
       breakdown: [
         'Components $754.2M; Systems $508.4M; revenue up 136.5% YoY and 25.5% QoQ',
         'Non-GAAP gross margin 53.2%; non-GAAP operating margin 42.3%',
-        'Pump lasers and optical circuit switches led growth across all businesses',
-        'Second major NPO/CPO win with $5B+ commitments',
+        'Pump lasers and optical circuit switches led growth; second major NPO/CPO win with $5B+ commitments',
         'To be acquired by Marvell in an all-stock deal, ~$115B EV; close expected H1 2028',
       ],
       sources: [
