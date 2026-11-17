@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-15",
+  "updatedAt": "2026-11-17",
   "source": "Finnhub earnings calendar",
   "companies": {
     "nvda": {
@@ -129,7 +129,7 @@
         "date": "2026-10-29",
         "fiscalQuarter": 3,
         "fiscalYear": 2026,
-        "epsActual": 11462,
+        "epsActual": 11260,
         "epsEstimate": 13770.42,
         "revenueActual": 195253200000000,
         "revenueEstimate": 201504508968200,
@@ -412,7 +412,7 @@
       "symbol": "SNOW",
       "currency": "USD",
       "next": {
-        "date": "2026-12-02",
+        "date": "2026-12-03",
         "hour": "amc"
       }
     },
