@@ -34,22 +34,22 @@ export const COMPANIES = [
       { to: 'avgo', label: 'networking complement (Tomahawk)' },
     ],
     earnings: {
-      period: 'FQ2 2027',
-      periodEnd: '2026-07-26',
-      reportedOn: '2026-08-26',
+      period: 'FQ3 2027',
+      periodEnd: '2026-10-25',
+      reportedOn: '2026-11-17',
       status: 'Beat',
-      statusBasis: 'Revenue $96.22B vs $92.17B and adjusted EPS $2.22 vs $2.10, LSEG consensus via CNBC.',
-      guidance: 'FQ3 2027 revenue of $108.0B +/-2% with GAAP and non-GAAP gross margin of 74.0% +/-50bps, assuming no China Data Center compute revenue.',
+      statusBasis: 'Revenue $115.84B vs $109.10B and adjusted EPS $2.68 vs $2.48, LSEG consensus via CNBC.',
+      guidance: 'FQ4 2027 revenue of $130.0B +/-3% (a 14-week quarter) with GAAP and non-GAAP gross margin of 71.0%-72.0%, assuming no China Data Center compute revenue; LSEG consensus was $125.1B.',
       breakdown: [
-        'Revenue $96.2B, up 106% YoY and 18% QoQ',
-        'Data Center $89.0B, up 117% YoY, the AI compute and networking driver',
-        'Edge Computing $7.2B, up 27% YoY',
-        'GAAP and non-GAAP gross margin 75.0%; non-GAAP EPS $2.22, GAAP $2.46',
+        'Revenue $115.8B, up 103% YoY and 20% QoQ',
+        'Data Center $107.6B, up 110% YoY and 21% QoQ, vs $101.87B StreetAccount estimate',
+        'Edge Computing $8.2B, up 42% YoY; $28.1B returned via buybacks and dividends',
+        'GAAP gross margin 74.8%, non-GAAP 74.9%; non-GAAP EPS $2.68, GAAP $2.70; first report under interim CEO Colette Kress',
       ],
       sources: [
-        { label: 'NVIDIA Q2 FY27 release (8-K)', url: 'https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000073/q2fy27pr.htm', date: '2026-08-26' },
-        { label: 'CNBC earnings takeaways (LSEG)', url: 'https://www.cnbc.com/2026/08/26/nvidia-nvda-earnings-report-q2-2027-live-updates.html', date: '2026-08-26' },
-        { label: 'NVIDIA sets Q3 call', url: 'https://nvidianews.nvidia.com/news/nvidia-sets-conference-call-for-third-quarter-financial-results-6928873', date: '2026-10-28' },
+        { label: 'NVIDIA Q3 FY27 release (8-K)', url: 'https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000088/q3fy27pr.htm', date: '2026-11-17' },
+        { label: 'CNBC earnings report (LSEG)', url: 'https://www.cnbc.com/2026/11/17/nvidia-nvda-earnings-report-q3-2027.html', date: '2026-11-17' },
+        { label: 'Fox Business: first report since Huang exit', url: 'https://www.foxbusiness.com/markets/nvidia-interim-ceo-says-weve-got-this-company-looks-future-without-jensen-huang', date: '2026-11-18' },
       ],
     },
     ir: {
@@ -2177,7 +2177,7 @@ export const getCompany = (id) => COMPANIES.find((c) => c.id === id);
 // estimates from last year's reporting cadence.
 export const NEXT_EARNINGS = {
   // Logic
-  nvda:  '2026-11-17',
+  nvda:  '2027-02-23',
   tsm:   '2027-01-14',
   avgo:  '2026-12-09',
   intc:  '2027-01-21',
@@ -2225,4 +2225,4 @@ export const NEXT_EARNINGS = {
   viav:  '2027-02-03',
 };
 
-export const EARNINGS_DATE_CONFIRMED = new Set(['nvda', 'avgo', 'adi', 'mrvl', 'toely', 'snow']);
+export const EARNINGS_DATE_CONFIRMED = new Set(['avgo', 'adi', 'mrvl', 'toely', 'snow']);
