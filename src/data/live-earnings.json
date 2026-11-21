@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18",
+  "updatedAt": "2026-11-21",
   "source": "Finnhub earnings calendar",
   "companies": {
     "nvda": {
@@ -75,16 +75,6 @@
     "txn": {
       "symbol": "TXN",
       "currency": "USD",
-      "latest": {
-        "date": "2026-10-21",
-        "fiscalQuarter": 3,
-        "fiscalYear": 2026,
-        "epsActual": 2.62,
-        "epsEstimate": 2.4415,
-        "revenueActual": 6055000000,
-        "revenueEstimate": 5979281446,
-        "status": "Beat"
-      },
       "next": {
         "date": "2027-01-25",
         "hour": "amc"
@@ -120,7 +110,7 @@
       "symbol": "MRVL",
       "currency": "USD",
       "next": {
-        "date": "2026-11-26",
+        "date": "2026-12-01",
         "hour": null
       }
     },
@@ -128,7 +118,7 @@
       "symbol": "MU",
       "currency": "USD",
       "next": {
-        "date": "2026-12-15",
+        "date": "2026-12-17",
         "hour": "amc"
       }
     },
@@ -233,16 +223,6 @@
     "lrcx": {
       "symbol": "LRCX",
       "currency": "USD",
-      "latest": {
-        "date": "2026-10-21",
-        "fiscalQuarter": 1,
-        "fiscalYear": 2027,
-        "epsActual": 2.2,
-        "epsEstimate": 2.2215,
-        "revenueActual": 8219418000,
-        "revenueEstimate": 8316301087,
-        "status": "Meet"
-      },
       "next": {
         "date": "2027-01-26",
         "hour": null
@@ -377,16 +357,6 @@
     "meta": {
       "symbol": "META",
       "currency": "USD",
-      "latest": {
-        "date": "2026-10-21",
-        "fiscalQuarter": 3,
-        "fiscalYear": 2026,
-        "epsActual": 7.4,
-        "epsEstimate": 6.8723,
-        "revenueActual": 64601000000,
-        "revenueEstimate": 64635778699,
-        "status": "Beat"
-      },
       "next": {
         "date": "2027-01-26",
         "hour": "amc"
@@ -537,16 +507,6 @@
     "kmi": {
       "symbol": "KMI",
       "currency": "USD",
-      "latest": {
-        "date": "2026-10-21",
-        "fiscalQuarter": 3,
-        "fiscalYear": 2026,
-        "epsActual": 0.35,
-        "epsEstimate": 0.326,
-        "revenueActual": 4531000000,
-        "revenueEstimate": 4420485180,
-        "status": "Beat"
-      },
       "next": {
         "date": "2027-01-19",
         "hour": "amc"
