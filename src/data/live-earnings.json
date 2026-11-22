@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-21",
+  "updatedAt": "2026-11-22",
   "source": "Finnhub earnings calendar",
   "companies": {
     "nvda": {
@@ -10,9 +10,9 @@
         "fiscalQuarter": 3,
         "fiscalYear": 2027,
         "epsActual": 2.68,
-        "epsEstimate": 2.525,
+        "epsEstimate": 2.5252,
         "revenueActual": 115844000000,
-        "revenueEstimate": 111282164311,
+        "revenueEstimate": 111294878734,
         "status": "Beat"
       },
       "next": {
@@ -143,16 +143,6 @@
     "wdc": {
       "symbol": "WDC",
       "currency": "USD",
-      "latest": {
-        "date": "2026-10-22",
-        "fiscalQuarter": 1,
-        "fiscalYear": 2027,
-        "epsActual": 4.64,
-        "epsEstimate": 4.128,
-        "revenueActual": 4381000000,
-        "revenueEstimate": 4176880957,
-        "status": "Beat"
-      },
       "next": {
         "date": "2027-01-27",
         "hour": null
@@ -183,8 +173,8 @@
         "date": "2026-10-29",
         "fiscalQuarter": 1,
         "fiscalYear": 2027,
-        "epsActual": 49.51,
-        "epsEstimate": 47.1481,
+        "epsActual": 6.18875,
+        "epsEstimate": 5.8935,
         "revenueActual": 11031000000,
         "revenueEstimate": 10851857295,
         "status": "Beat"
@@ -296,7 +286,7 @@
         "status": "Beat"
       },
       "next": {
-        "date": "2027-01-26",
+        "date": "2027-01-27",
         "hour": "bmo"
       }
     },
@@ -392,7 +382,7 @@
       "symbol": "SNOW",
       "currency": "USD",
       "next": {
-        "date": "2026-12-02",
+        "date": "2026-12-03",
         "hour": "amc"
       }
     },
