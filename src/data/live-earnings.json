@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-23",
+  "updatedAt": "2026-11-24",
   "source": "Finnhub earnings calendar",
   "companies": {
     "nvda": {
@@ -101,9 +101,19 @@
     "adi": {
       "symbol": "ADI",
       "currency": "USD",
-      "next": {
+      "latest": {
         "date": "2026-11-24",
-        "hour": "bmo"
+        "fiscalQuarter": 4,
+        "fiscalYear": 2026,
+        "epsActual": 4.06,
+        "epsEstimate": 3.9221,
+        "revenueActual": 4373420000,
+        "revenueEstimate": 4364793608,
+        "status": "Beat"
+      },
+      "next": {
+        "date": "2027-02-16",
+        "hour": null
       }
     },
     "mrvl": {
