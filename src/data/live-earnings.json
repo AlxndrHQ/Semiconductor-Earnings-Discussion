@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-24",
+  "updatedAt": "2026-11-25",
   "source": "Finnhub earnings calendar",
   "companies": {
     "nvda": {
@@ -121,7 +121,7 @@
       "currency": "USD",
       "next": {
         "date": "2026-12-01",
-        "hour": null
+        "hour": "amc"
       }
     },
     "mu": {
