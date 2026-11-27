@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-25",
+  "updatedAt": "2026-11-27",
   "source": "Finnhub earnings calendar",
   "companies": {
     "nvda": {
@@ -161,16 +161,6 @@
     "stx": {
       "symbol": "STX",
       "currency": "USD",
-      "latest": {
-        "date": "2026-10-27",
-        "fiscalQuarter": 1,
-        "fiscalYear": 2027,
-        "epsActual": 7.68,
-        "epsEstimate": 7.4926,
-        "revenueActual": 4233000000,
-        "revenueEstimate": 4179066263,
-        "status": "Beat"
-      },
       "next": {
         "date": "2027-01-25",
         "hour": null
@@ -489,16 +479,6 @@
     "oke": {
       "symbol": "OKE",
       "currency": "USD",
-      "latest": {
-        "date": "2026-10-27",
-        "fiscalQuarter": 3,
-        "fiscalYear": 2026,
-        "epsActual": 2.13,
-        "epsEstimate": 1.5841,
-        "revenueActual": 12455000000,
-        "revenueEstimate": 10645967912,
-        "status": "Beat"
-      },
       "next": {
         "date": "2027-02-22",
         "hour": "amc"
