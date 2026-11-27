@@ -393,22 +393,22 @@ export const COMPANIES = [
       { to: 'lrcx', label: 'etch tooling for BiCMOS process' },
     ],
     earnings: {
-      period: 'FQ3 2026',
-      periodEnd: '2026-08-01',
-      reportedOn: '2026-08-19',
+      period: 'FQ4 2026',
+      periodEnd: '2026-10-31',
+      reportedOn: '2026-11-24',
       status: 'Beat',
-      statusBasis: 'Revenue $4.02B vs $3.92B and adjusted EPS $3.45 vs $3.33, analyst estimates in a Reuters-based report on RTE; the Q3 consensus provider is unnamed.',
-      guidance: 'FQ4 2026 revenue of $4.3B +/-$100M, adjusted operating margin of about 52.0% +/-100bps and adjusted EPS of $3.86 +/-$0.15.',
+      statusBasis: 'Revenue $4.37B vs $4.32B and adjusted EPS $4.06 vs $3.89, Wall Street consensus via Investing.com (provider unnamed).',
+      guidance: 'FQ1 2027 revenue of $4.4B +/-$150M, adjusted operating margin of about 50.5% +/-100bps and adjusted EPS of $3.82 +/-$0.20, below the $3.88 analyst expectation cited by the WSJ.',
       breakdown: [
-        'Revenue $4.02B, up 40% YoY, led by Data Center and Industrial',
-        'Industrial $1.97B, up 53%; Automotive $998M, up 16%',
-        'Communications $655M, up 84%; Consumer $397M, up 6%',
-        'Adjusted gross margin 72.5%, adjusted operating margin 50.0%, adjusted EPS $3.45',
+        'Revenue $4.37B, up 42% YoY; FY2026 revenue a record $15.18B, up 38%',
+        'Industrial $2.19B, up 55%; Automotive $1.04B, up 21%',
+        'Communications $707M, up 81%; Consumer $429M, up 7%',
+        'Adjusted gross margin 74.5%, adjusted operating margin 52.3%, adjusted EPS $4.06 (GAAP $3.40)',
       ],
       sources: [
-        { label: 'ADI FQ3 release (8-K)', url: 'https://www.sec.gov/Archives/edgar/data/0000006281/000000628126000072/adi3q26exhibit991earnings.htm', date: '2026-08-19' },
-        { label: 'RTE (Reuters-based)', url: 'https://www.rte.ie/news/business/2026/0819/1588525-analog-devices-quarterly-forecast-tops-estimates/', date: '2026-08-19' },
-        { label: 'ADI FQ4 date notice', url: 'https://www.analog.com/en/newsroom/press-releases/2026/10-22-2026-adi-report-4q-fy2026-financial-results.html', date: '2026-10-22' },
+        { label: 'ADI FQ4 release (8-K)', url: 'https://www.sec.gov/Archives/edgar/data/0000006281/000000628126000087/adiq426exhibit991.htm', date: '2026-11-24' },
+        { label: 'Investing.com: ADI beats Q4 estimates', url: 'https://ca.investing.com/news/stock-market-news/earnings-call-transcript-analog-devices-beats-q4-2026-estimates-shares-slide-93CH-4978795', date: '2026-11-24' },
+        { label: 'Capital Brief: shares fall on forecast', url: 'https://www.capitalbrief.com/briefing/analog-devices-shares-fall-on-cautious-earnings-forecast-ea28c38e-d903-4599-821d-70e129057d81/', date: '2026-11-25' },
       ],
     },
     ir: {
@@ -2184,7 +2184,7 @@ export const NEXT_EARNINGS = {
   amd:   '2027-02-02',
   txn:   '2027-01-26',
   qcom:  '2027-02-03',
-  adi:   '2026-11-24',
+  adi:   '2027-02-16',
   mrvl:  '2026-12-01',
   // Memory
   skhx:  '2027-01-27',
@@ -2225,4 +2225,4 @@ export const NEXT_EARNINGS = {
   viav:  '2027-02-03',
 };
 
-export const EARNINGS_DATE_CONFIRMED = new Set(['avgo', 'adi', 'mrvl', 'toely', 'snow']);
+export const EARNINGS_DATE_CONFIRMED = new Set(['avgo', 'mrvl', 'toely', 'snow']);
